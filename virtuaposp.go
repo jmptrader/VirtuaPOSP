@@ -1,18 +1,19 @@
-// 银联模拟POSP，协议：ISO-8583
+// 模拟POSP，协议：ISO-8583
 package virtuaposp
 
 import (
 	"fmt"
 	"net"
-	"runtime"
 	"time"
 )
 
-func dlm_main() {
+func BeginServe(port uint16) {
 	var fWorking bool = false
 	var N int
 
-	l, err := net.Listen("tcp", "127.0.0.1:8583") // l 的类型： net.Listener
+	var Addr string = fmt.Sprintf(":%d", port)
+
+	l, err := net.Listen("tcp", Addr) // l 的类型： net.Listener
 	if err == nil {
 		fmt.Println("监听成功")
 	} else {
