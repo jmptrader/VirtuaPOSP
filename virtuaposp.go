@@ -7,8 +7,10 @@ import (
 	"time"
 )
 
-const LLVAR = 2
-const LLLVAR = 3
+const (
+	LLVAR  = 2
+	LLLVAR = 3
+)
 
 const (
 	FORMAT_BCD = iota
